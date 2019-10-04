@@ -42,10 +42,11 @@
       </mat-form-field>
 
       <mat-form-field class="example-full-width">
-        <input type="number" matInput placeholder="Buy" />
+        <input type="number" matInput placeholder="Buy" [(ngModel)]="buy" />
       </mat-form-field>
     </div>
     <div class="clear"></div>
+    <button mat-flat-button color="danger" (click)="canceled()">Cancel</button>&nbsp;
     <button mat-flat-button color="primary">Order</button>
   </form>
 </div>

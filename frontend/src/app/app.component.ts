@@ -4,6 +4,7 @@ import {Observable} from 'rxjs';
 import {map, startWith} from 'rxjs/operators';
 import { DatePipe } from '@angular/common';
 
+import { ApiService } from './api.service';
 
 @Component({
   selector: 'app-root',
@@ -15,16 +16,19 @@ export class AppComponent implements OnInit {
   title = 'Order';
   films: string[] = ['Tarlin', 'Test', 'Hello'];
   customers: string[] = ['Dada', 'Asep', 'Aji'];
+  buy: number;
   filteredFilms: Observable<string[]>;
   filteredCustomers: Observable<string[]>;
   myControlFilm = new FormControl();
   myControlCustomer = new FormControl();
   myDate = new Date();
-  // constructor(private datePipe: DatePipe){
-  //   myDate = this.datePipe.transform(this.myDate, 'yyyy-MM-dd');
-  // }
+  constructor(private apiService: ApiService){}
+
 
   ngOnInit() {
+    this.apiService.getCustomers().subscribe((res)=>{
+      console.log("res >>", res)
+    });
     this.filteredFilms = this.myControlFilm.valueChanges.pipe(
       startWith(''),
       map(value => this._filter(value))
@@ -33,6 +37,11 @@ export class AppComponent implements OnInit {
       startWith(''),
       map(value => this._filter(value))
     );
+  }
+
+  canceled(){
+    this.films = []
+    this.buy = 0
   }
 
   private _filter(value: string): string[] {
