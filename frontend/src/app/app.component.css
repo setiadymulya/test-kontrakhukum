@@ -1,0 +1,30 @@
+.example-form {
+   min-width: 150px;
+   max-width: 500px;
+   width: 100%;
+ }
+ 
+ .example-full-width {
+   width: 100%;
+ }
+
+ .container{
+   display: block;
+   margin: 24px auto;
+   background-color: #cfcfcf;
+   width: 24%;
+   padding: 24px 24px;
+   border-radius: 5px;
+   border: 1px solid #b6b6b6;
+ }
+
+ .col-6{ width: 40%; }
+ 
+ .pull-left{ float: left; }
+ 
+ .pull-right{ float: right; }
+
+ .clear {
+    clear: both;
+    margin: 0;
+ }

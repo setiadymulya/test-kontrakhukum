@@ -1,0 +1,53 @@
+<div class="container">
+  <form class="example-form col-12">
+    <div class="col-6 pull-left">
+      <mat-form-field class="example-full-width">
+        <input type="text" placeholder="Customer" aria-label="Number" matInput [formControl]="myControlCustomer" [matAutocomplete]="auto">
+        <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
+          <mat-option *ngFor="let option2 of filteredCustomers | async" [value]="option2">
+            {{ option2 }}
+          </mat-option>
+        </mat-autocomplete>
+      </mat-form-field>
+
+      <mat-form-field class="example-full-width">
+        <input matInput placeholder="Name" readonly />
+      </mat-form-field>
+
+      <mat-form-field class="example-full-width">
+        <input matInput placeholder="Phone" readonly />
+      </mat-form-field>
+  
+      <mat-form-field class="example-full-width">
+        <input matInput placeholder="E-mail" readonly />
+      </mat-form-field>
+    </div>
+
+    <div class="col-6 pull-right">
+      <mat-form-field class="example-full-width">
+        <input type="text" placeholder="Film" aria-label="Number" matInput [formControl]="myControlFilm" [matAutocomplete]="auto">
+        <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
+          <mat-option *ngFor="let option of filteredFilms | async" [value]="option">
+            {{option}}
+          </mat-option>
+        </mat-autocomplete>
+      </mat-form-field>
+
+      <mat-form-field class="example-full-width">
+        <input matInput placeholder="Film Name" readonly />
+      </mat-form-field>
+
+      <mat-form-field class="example-full-width">
+        <input matInput placeholder="Time" readonly />
+      </mat-form-field>
+
+      <mat-form-field class="example-full-width">
+        <input type="number" matInput placeholder="Buy" />
+      </mat-form-field>
+    </div>
+    <div class="clear"></div>
+    <button mat-flat-button color="primary">Order</button>
+  </form>
+</div>
+
+<router-outlet></router-outlet>
