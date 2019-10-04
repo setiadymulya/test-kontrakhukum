@@ -11,22 +11,22 @@
       </mat-form-field>
 
       <mat-form-field class="example-full-width">
-        <input matInput placeholder="Name" readonly />
+        <input matInput placeholder="Name" [(ngModel)]="name" readonly />
       </mat-form-field>
 
       <mat-form-field class="example-full-width">
-        <input matInput placeholder="Phone" readonly />
+        <input matInput placeholder="Phone" [(ngModel)]="phone" readonly />
       </mat-form-field>
   
       <mat-form-field class="example-full-width">
-        <input matInput placeholder="E-mail" readonly />
+        <input matInput placeholder="E-mail" [(ngModel)]="email" readonly />
       </mat-form-field>
     </div>
 
     <div class="col-6 pull-right">
       <mat-form-field class="example-full-width">
         <input type="text" placeholder="Film" aria-label="Number" matInput [formControl]="myControlFilm" [matAutocomplete]="auto">
-        <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
+        <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete" (optionSelected)="onSelectionChange($event)">
           <mat-option *ngFor="let option of filteredFilms | async" [value]="option">
             {{option}}
           </mat-option>
@@ -34,11 +34,11 @@
       </mat-form-field>
 
       <mat-form-field class="example-full-width">
-        <input matInput placeholder="Film Name" readonly />
+        <input matInput placeholder="Film Name" [(ngModel)]="film_name" readonly />
       </mat-form-field>
 
       <mat-form-field class="example-full-width">
-        <input matInput placeholder="Time" readonly />
+        <input matInput placeholder="Time" [(ngModel)]="time" readonly />
       </mat-form-field>
 
       <mat-form-field class="example-full-width">
@@ -47,7 +47,7 @@
     </div>
     <div class="clear"></div>
     <button mat-flat-button color="danger" (click)="canceled()">Cancel</button>&nbsp;
-    <button mat-flat-button color="primary">Order</button>
+    <button mat-flat-button color="primary" (click)="createOrder()">Order</button>
   </form>
 </div>
 

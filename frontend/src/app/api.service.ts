@@ -15,5 +15,9 @@ export class ApiService {
 
   public createOrder(order: Order){
     return this.httpClient.post(`${this.apiURL}/orders/create`, order);
-   }
+  }
+
+  public getCustomerByCode(code: string){
+    return this.httpClient.get(`${this.apiURL}/orders/customers/${code}`);
+  }
 }
